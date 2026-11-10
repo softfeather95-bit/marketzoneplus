@@ -2,6 +2,7 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/vendramarket/public_html/marketzonepuls.store
+    - if [ -d "/home/vendramarket/public_html/marketzoneplus.store" ]; then export DEPLOYPATH=/home/vendramarket/public_html/marketzoneplus.store; fi
     - /bin/mkdir -p $DEPLOYPATH
     - /bin/cp -Rf api/ $DEPLOYPATH/api/
     - /bin/cp -Rf contracts/ $DEPLOYPATH/contracts/
@@ -9,5 +10,6 @@ deployment:
     - /bin/cp -Rf public/ $DEPLOYPATH/public/
     - /bin/cp -Rf src/ $DEPLOYPATH/src/
     - /bin/cp -f app.js package.json package-lock.json index.html vite.config.ts drizzle.config.ts tsconfig.json tsconfig.app.json tsconfig.node.json postcss.config.js tailwind.config.js eslint.config.js components.json vitest.config.ts Dockerfile .prettierrc .prettierignore .backend-features.json $DEPLOYPATH/ 2>/dev/null || true
-    - cd $DEPLOYPATH && npm install 2>&1 | tail -5
-    - cd $DEPLOYPATH && npm run build 2>&1 | tail -10
+    - if [ ! -f "$DEPLOYPATH/.env" ] && [ -f ".env.example" ]; then /bin/cp -f .env.example $DEPLOYPATH/.env; fi
+    - cd $DEPLOYPATH && (npm install 2>&1 | tail -5) || echo "npm install deferred to cPanel Terminal / Node App"
+    - cd $DEPLOYPATH && (npm run build 2>&1 | tail -10) || echo "npm run build deferred to cPanel Terminal / Node App"
