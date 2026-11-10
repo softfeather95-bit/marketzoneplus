@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1792928745172,
+      "tag": "0000_left_master_mold",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1793017939288,
+      "tag": "0001_cuddly_falcon",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1793022293009,
+      "tag": "0002_abnormal_thunderbird",
+      "breakpoints": true
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/vendramarket/public_html/marketzonepuls.store
+    - /bin/mkdir -p $DEPLOYPATH
+    - /bin/cp -Rf api/ $DEPLOYPATH/api/
+    - /bin/cp -Rf contracts/ $DEPLOYPATH/contracts/
+    - /bin/cp -Rf db/ $DEPLOYPATH/db/
+    - /bin/cp -Rf public/ $DEPLOYPATH/public/
+    - /bin/cp -Rf src/ $DEPLOYPATH/src/
+    - /bin/cp -f app.js package.json package-lock.json index.html vite.config.ts drizzle.config.ts tsconfig.json tsconfig.app.json tsconfig.node.json postcss.config.js tailwind.config.js eslint.config.js components.json vitest.config.ts Dockerfile .prettierrc .prettierignore .backend-features.json $DEPLOYPATH/ 2>/dev/null || true
+    - cd $DEPLOYPATH && npm install 2>&1 | tail -5
+    - cd $DEPLOYPATH && npm run build 2>&1 | tail -10

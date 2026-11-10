@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MarketZonePlus — Online Shopping</title>
+<meta name="description" content="Explore the MarketZonePlus marketplace. Local preview uses browser storage; hosted mode connects to the configured server.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛒</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>
+(function(){
+  var local = location.protocol === 'file:';
+  var root = local ? 'public/' : '/';
+  var css = document.createElement('link'); css.rel = 'stylesheet'; css.href = root + 'css/style.css'; document.head.appendChild(css);
+  var scripts = [
+    'https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js',
+    'https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js',
+    'https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js',
+    root + 'js/firebase-config.js', root + 'js/chat.js', root + 'js/catalog.js',
+    root + 'js/countries.js'
+  ];
+  if (!local) scripts.push(root + 'js/server.js');
+  scripts.push(root + 'js/app.js');
+  function load(i){
+    if(i>=scripts.length) return;
+    var s=document.createElement('script'); s.src=scripts[i]; s.onload=function(){load(i+1)};
+    s.onerror=function(){ if(i<3){load(i+1);return;} document.getElementById('app').innerHTML='<main style="max-width:680px;margin:12vh auto;padding:24px;font:16px Arial"><h1>Preview could not load</h1><p>Some project files could not be opened. Please open this page from the extracted project folder.</p></main>'; };
+    document.body.appendChild(s);
+  }
+  window.addEventListener('DOMContentLoaded',function(){load(0)});
+})();
+</script>
+</head>
+<body>
+<div id="app"><main style="max-width:680px;margin:12vh auto;padding:24px;font:16px Arial;color:#172235"><h1>MarketZonePlus</h1><p>Loading storefront preview…</p></main></div>
+<div id="modal-root"></div><div id="toast"></div>
+</body>
+</html>

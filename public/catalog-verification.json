@@ -1,0 +1,44 @@
+{
+  "products": 510,
+  "uniqueSkus": 510,
+  "uniqueIds": 510,
+  "galleryImages": 1968,
+  "galleryDistribution": {
+    "4": 446,
+    "3": 56,
+    "2": 8
+  },
+  "categoryDistribution": {
+    "Shoes": 79,
+    "Home & Kitchen": 133,
+    "Bags & Travel": 96,
+    "Accessories": 114,
+    "Sports & Fitness": 25,
+    "Smartphones": 1,
+    "Laptops": 1,
+    "Headphones": 1,
+    "Computers": 4,
+    "Smartwatches": 1,
+    "Toys & Games": 1,
+    "Fashion": 23,
+    "Electronics": 6,
+    "Patio & Garden": 7,
+    "Tools & Home Improvement": 8,
+    "Beauty": 4,
+    "Automotive": 2,
+    "Jewelry": 2,
+    "Office Products": 2
+  },
+  "priceRange": [
+    40.0,
+    1000.0
+  ],
+  "discountsConsistent": true,
+  "excludedBrandingFound": false,
+  "source": "Amazon Berkeley Objects metadata/images (CC BY 4.0) and previously credited Wikimedia Commons exact-model images",
+  "decodedImages": 1968,
+  "brokenImages": 0,
+  "blankImages": 0,
+  "duplicateGalleryImages": 0,
+  "smallImages": 0
+}
